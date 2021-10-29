@@ -29,9 +29,9 @@ public class Main {
 		sc.nextLine();
 		
 		hanoi.createPoles(n);
-//		hanoi.HanoiCopy(n, 0, 0, 0);
+		
 		System.out.println("\nORIGINAL: " + hanoi.printPoles() + "\n");
 		hanoi.solve(n, 0, 0, 0);
-		System.out.println("\nFINAL: " + hanoi.printPoles());
+//		System.out.println("\nFINAL: " + hanoi.printPoles());
 	}
 }

@@ -50,38 +50,65 @@ public class Hanoi {
 		
 		if(n == 1) {
 
-//			System.out.println("--Move disc " + n + " from " + origin + " to " + destiny);
-			
 			if(count % 2 != 0) {
 				
-				poles[0]--;
-				poles[2]++;
-				System.out.println("--" + printPoles());
+				if(poles[0] <= 0) {
+					
+					poles[1]--;
+					poles[2]++;
+					System.out.println("--" + printPoles());
+					
+				} else {
+					
+					poles[0]--;
+					poles[2]++;
+					System.out.println("---" + printPoles());
+				}
 				
-			} else {
+//				poles[0]--;
+//				poles[2]++;
+//				System.out.println("--" + printPoles());
 				
-				poles[0]--;
-				poles[1]++;
-				System.out.println("--" + printPoles());
+			} else { //origin, destiny, aux
+				
+				if(poles[0] <= 0) {
+					
+					poles[1]--;
+					poles[2]++;
+					System.out.println("----" + printPoles());
+					
+				} else {
+					
+					poles[0]--;
+					poles[1]++;
+					System.out.println("-----" + printPoles());
+				}
 			}
-			
 
 		} else {
 
 			solve(n - 1, origin, destiny, aux);
-//			System.out.println("Move disc " + n + " from " + origin + " to " + destiny);
 			
 			if(count % 2 != 0) {
 				
-				poles[1]--;
-				poles[2]++;
-				System.out.println("" + printPoles());
-				
+				if(poles[0] <= 0) {
+					
+					poles[0]--;
+					poles[1]++;
+					System.out.println("==" + printPoles());
+					
+				} else {
+					
+					poles[0]--;
+					poles[1]++;
+					System.out.println("===" + printPoles());
+				}
+
 			} else {
-				
+
 				poles[0]--;
 				poles[2]++;
-				System.out.println("" + printPoles());
+				System.out.println("====" + printPoles());
 			}
 			
 //			poles[0]--;
