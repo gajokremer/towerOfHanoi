@@ -1,6 +1,6 @@
 package model;
 
-public class Hanoi {
+public class Ideas {
 
 	private int poles[]; 
 	private int count = 0;
@@ -13,7 +13,7 @@ public class Hanoi {
 		this.poles = poles;
 	}
 
-	public Hanoi() {
+	public Ideas() {
 
 		poles = new int[3];
 	}
@@ -118,6 +118,10 @@ public class Hanoi {
 		}
 	}
 
+	public void move(int origin, int destiny) {
+		
+		
+	}
 
 	public String printPoles() {
 
