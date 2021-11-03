@@ -7,6 +7,7 @@ public class Main {
 	
 //	private Hanoi hanoi;
 	private Scanner sc;
+	private int depth = 0;
 	
 	private static int poles[]; 
 	
@@ -40,39 +41,33 @@ public class Main {
 		createPoles(n);
 		
 		System.out.println("\nORIGINAL: " + printPoles() + "\n");
-		solve(n, poles[0], poles[1], poles[2]);
+		solve(n, poles[0], poles[1], poles[2], 0, 1, 2);
+		System.out.println("\nORIGINAL: " + printPoles() + "\n");
+		System.out.println("END");
 //		HanoiCopy(n, 1, 2, 3);
 //		System.out.println("\nFINAL: " + hanoi.printPoles());
 	}
 	
-	public void solve(int n, int origin, int aux, int destiny) {
+	public void solve(int n, int origin, int aux, int destiny, int tower1, int tower2, int tower3) {
 		
-//		System.out.println("Origin: " + origin);
-//		System.out.println("Aux: " + aux);
-//		System.out.println("Destiny: " + destiny);
-
 		if(n == 1) {
 			
-			poles = move(origin, destiny, aux);
-			System.out.println("--" + printPoles());
-			 
-		} else {
-			
-			solve(n - 1, origin, destiny, aux);
-			poles = move(origin, destiny, aux);
+			poles[tower1]--;
+			poles[tower3]++;
 			System.out.println(printPoles());
-			solve(n - 1, aux, origin, destiny);
+			
+		} else {
+
+			solve(n - 1, origin, destiny, aux, tower1, tower3, tower2);
+			poles[tower1]--;
+			poles[tower3]++;
+			System.out.println(printPoles());
+			solve(n - 1, aux, origin, destiny, tower2, tower1, tower3);
 		}
 	}
 	
-	public int [] move(int origin, int destiny, int aux) {
+	public void move(int depth, int origin, int aux, int destiny) {
 		
-		origin--;
-		destiny++;
-		
-		int[] arr = {origin, aux, destiny};
-		
-		return arr;
 	}
 	
 	public void HanoiCopy(int n, int origin, int aux, int destiny) {
